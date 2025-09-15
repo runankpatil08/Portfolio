@@ -3,76 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Runank Patil | Full Stack PYTHON Developer</title>
+  <title>Runank Patil | Full Stack Python Developer</title>
 
-  <!-- Bootstrap CDN -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
+  <!-- Animate.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+
   <style>
-    /* CSS Variables for Light/Dark */
-    :root {
-      --bg-color: #f9f9f9;
-      --text-color: #333;
-      --card-bg: #fff;
-      --section-bg: #ffffff;
-      --primary-color: #007bff;
-      --secondary-color: #555;
-    }
-
-    body.dark-mode {
-      --bg-color: #1a1a2e;
-      --text-color: #f1f1f1;
-      --card-bg: #16213e;
-      --section-bg: #0f3460;
-      --primary-color: #00d4ff;
-      --secondary-color: #c7c7c7;
-    }
-
-    /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      background-color: #000;
+      color: #e5e5e5;
       scroll-behavior: smooth;
-      transition: background 0.5s ease, color 0.5s ease;
     }
 
     h1, h2, h3 {
       font-weight: 700;
+      color: #00ff88;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
     }
 
     .btn-primary {
-      background-color: var(--primary-color);
+      background: linear-gradient(45deg, #00ff88, #006600);
       border: none;
-      transition: background 0.3s ease;
+      color: #000;
+      transition: all 0.4s ease;
     }
 
     .btn-primary:hover {
-      background-color: #0056b3;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      transition: color 0.5s ease;
+      background: linear-gradient(45deg, #006600, #00ff88);
+      color: #fff;
+      box-shadow: 0 0 20px #00ff88;
+      transform: scale(1.05);
     }
 
     /* Hero Section */
     #hero {
-      background: linear-gradient(to right, #4e54c8, #8f94fb);
+      background: radial-gradient(circle at center, #003300, #000 80%);
       color: white;
       padding: 80px 20px;
       text-align: center;
-      transition: background 0.5s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    body.dark-mode #hero {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(#00ff88, #000, #00ff88);
+      animation: rotateBg 10s linear infinite;
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    @keyframes rotateBg {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #hero * {
+      position: relative;
+      z-index: 1;
     }
 
     #hero img {
@@ -80,98 +80,116 @@
       width: 150px;
       height: 150px;
       object-fit: cover;
-      border: 4px solid white;
+      border: 4px solid #00ff88;
       margin-bottom: 20px;
       animation: float 4s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-12px); }
     }
 
-    /* Cards & Sections */
+    /* Sections */
     section {
-      background: var(--section-bg);
+      background: #111;
       border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
       padding: 60px 20px;
       margin: 40px auto;
       max-width: 1000px;
-      transition: all 0.5s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #00ff88;
+      text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+    }
+
+    /* Cards */
     .project-card {
-      background: var(--card-bg);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, background 0.5s ease, color 0.5s ease;
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.4s ease;
+      color: #e5e5e5;
+      border: 1px solid transparent;
     }
 
     .project-card:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
+      border: 1px solid #00ff88;
+      box-shadow: 0 0 20px #00ff88;
     }
 
-    /* Contact Links */
+    /* Skills */
+    .skill-box {
+      padding: 15px;
+      background: #111;
+      border-radius: 10px;
+      border: 1px solid #00ff88;
+      margin: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(0,255,136,0.4);
+    }
+
+    .skill-box:hover {
+      background: #00ff88;
+      color: #000;
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00ff88;
+    }
+
+    /* Contact */
     .contact-link {
       display: inline-block;
       margin: 10px;
       font-size: 18px;
-      color: var(--primary-color);
+      color: #00ff88;
       text-decoration: none;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .contact-link:hover {
-      transform: translateY(-3px);
-      color: #ff9800;
+      color: #fff;
+      text-shadow: 0 0 15px #00ff88;
+      transform: scale(1.1);
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background-color: var(--card-bg);
-      transition: background 0.5s ease, color 0.5s ease;
-    }
-
-    /* Dark Mode Toggle */
-    .dark-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--primary-color);
-      border: none;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background 0.5s ease, transform 0.3s ease;
-      z-index: 1000;
-    }
-
-    .dark-toggle:hover {
-      transform: rotate(15deg) scale(1.1);
+      background-color: #111;
+      color: #777;
     }
   </style>
 </head>
 <body>
 
-<!-- Dark Mode Toggle -->
-<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
-
 <!-- HERO -->
-<section id="hero">
+<section id="hero" class="animate__animated animate__fadeInDown">
   <img src="profile.jpg" alt="Runank Patil Profile Picture">
   <h1>Runank P. Patil</h1>
   <p class="lead">Full Stack Python Developer | Python • Django • SQL • JavaScript</p>
-  <a href="#contact" class="btn btn-light mt-3">Let's Connect</a>
+  <a href="#contact" class="btn btn-primary mt-3">Let's Connect</a>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <h2 class="section-title">About Me</h2>
   <p class="text-center">
-    Entry-level Full Stack Developer with hands-on experience in Python, Django, SQL, HTML, CSS, and JavaScript. Passionate about developing intuitive, high-performance web applications. Quick learner with excellent teamwork and problem-solving skills. Excited to grow within a forward-thinking organization.
+    Entry-level Full Stack Developer with hands-on experience in Python, Django, SQL, HTML, CSS, and JavaScript. Passionate about developing intuitive, high-performance web applications. Quick learner with excellent teamwork and problem-solving skills.
   </p>
 </section>
 
@@ -179,14 +197,14 @@
 <section id="skills">
   <h2 class="section-title">Skills & Tools</h2>
   <div class="row text-center justify-content-center">
-    <div class="col-md-3">Python</div>
-    <div class="col-md-3">Django</div>
-    <div class="col-md-3">JavaScript</div>
-    <div class="col-md-3">HTML5 / CSS3</div>
-    <div class="col-md-3 mt-3">OOP</div>
-    <div class="col-md-3 mt-3">Software Testing</div>
-    <div class="col-md-3 mt-3">MySQL / SQLite</div>
-    <div class="col-md-3 mt-3">React / Bootstrap</div>
+    <div class="col-md-3 skill-box">Python</div>
+    <div class="col-md-3 skill-box">Django</div>
+    <div class="col-md-3 skill-box">JavaScript</div>
+    <div class="col-md-3 skill-box">HTML5 / CSS3</div>
+    <div class="col-md-3 skill-box">OOP</div>
+    <div class="col-md-3 skill-box">Software Testing</div>
+    <div class="col-md-3 skill-box">MySQL / SQLite</div>
+    <div class="col-md-3 skill-box">React / Bootstrap</div>
   </div>
 </section>
 
@@ -195,23 +213,17 @@
   <h2 class="section-title">Projects</h2>
   <div class="row">
     <div class="col-md-6">
-      <div class="card project-card p-3">
+      <div class="project-card">
         <h3>LapiFy</h3>
-        <p>Laptop Inventory Management System using Django, Bootstrap, SQLite. Features authentication, stock tracking, and dashboard.</p>
+        <p>Laptop Inventory Management System using Django, Bootstrap, SQLite.</p>
         <a href="https://runankpatil.pythonanywhere.com/" class="btn btn-primary mb-2" target="_blank">Live Demo</a>
-        <a href="https://github.com/runankpatil08/Full_Stack" class="btn btn-outline-dark" target="_blank">Source Code</a>
+        <a href="https://github.com/runankpatil08/Full_Stack" class="btn btn-outline-light" target="_blank">Source Code</a>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="card project-card p-3">
+      <div class="project-card">
         <h3>Digital Banking System</h3>
-        <p>Console-based Python app for basic banking operations like deposit, withdrawal, and balance check.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mt-4">
-      <div class="card project-card p-3">
-        <h3>College Student Admin Portal</h3>
-        <p>Student portal to enhance administrative operations and user experience in colleges.</p>
+        <p>Console-based Python app for banking operations (deposit, withdrawal, balance check).</p>
       </div>
     </div>
   </div>
@@ -241,12 +253,8 @@
   <h2 class="section-title">Contact</h2>
   <p class="text-center">Email me at: <a href="mailto:runankpatil08@gmail.com">runankpatil08@gmail.com</a></p>
   <div class="text-center mt-3">
-    <a href="https://github.com/runankpatil08" target="_blank" class="contact-link">
-      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="24" alt="GitHub Icon"> GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/runank-patil08" target="_blank" class="contact-link">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" alt="LinkedIn Icon"> LinkedIn
-    </a>
+    <a href="https://github.com/runankpatil08" target="_blank" class="contact-link">GitHub</a>
+    <a href="https://www.linkedin.com/in/runank-patil08" target="_blank" class="contact-link">LinkedIn</a>
   </div>
 </section>
 
@@ -258,17 +266,19 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Dark Mode Script -->
+<!-- Scroll Animation -->
 <script>
-  function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-    const toggleBtn = document.querySelector(".dark-toggle");
-    if (document.body.classList.contains("dark-mode")) {
-      toggleBtn.textContent = "☀️";
-    } else {
-      toggleBtn.textContent = "🌙";
-    }
-  }
+  const sections = document.querySelectorAll("section");
+  const revealOnScroll = () => {
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        sec.classList.add("visible");
+      }
+    });
+  };
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
 </script>
 
 </body>
